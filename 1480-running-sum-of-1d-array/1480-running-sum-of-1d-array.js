@@ -12,8 +12,4 @@ var runningSum = function(nums) {
         return sum
         }, initialValue)
     return arr
-    
-
-console.log(sumWithInitial);
-    
 };
