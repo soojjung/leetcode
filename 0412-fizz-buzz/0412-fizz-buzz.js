@@ -8,14 +8,15 @@ var fizzBuzz = function(n) {
 };
 
 const loop = (n) => {
-    if (n % 15 === 0) {
-        return 'FizzBuzz'
-    }
+    let myString = '';
     if (n % 3 === 0) {
-        return 'Fizz'
+        myString += 'Fizz'
     }
     if (n % 5 === 0) {
-        return 'Buzz'
+        myString += 'Buzz'
     }
-    return `${n}`
+    if (myString === '') {
+        myString = `${n}`
+    }
+    return myString
 }
