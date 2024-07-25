@@ -3,16 +3,15 @@
  * @return {boolean}
  */
 var areOccurrencesEqual = function(s) {
-    const hashMap = new Map();
-    for (const letter of s) {
-        hashMap.set(letter, (hashMap.get(letter) || 0) + 1)
+    let counts = new Map();
+    for (const c of s) {
+        counts.set(c, (counts.get(c) || 0) + 1);
+    }
+    
+    let frequencies = new Set();
+    for (const val of counts.values()) {
+        frequencies.add(val);
     }
 
-    const values = [...hashMap.values()]
-    for (let i = 1; i<values.length; i++) {
-        if (values[i] !== values[i-1]) {
-            return false;
-        }
-    }
-    return true;
+    return frequencies.size == 1;
 };
