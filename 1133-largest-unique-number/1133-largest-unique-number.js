@@ -4,17 +4,17 @@
  */
 var largestUniqueNumber = function(nums) {
     const hashMap = new Map();
+    let max = -1;
 
     for (let n of nums) {
         hashMap.set(n, (hashMap.get(n) || 0) + 1);
     }
 
-    const ones = []
-    hashMap.forEach((value, key) => {
+    for (let [key, value] of hashMap) {
         if (value === 1) {
-            ones.push(key)
+            max = Math.max(max, key);
         }
-    })
+    }
 
-    return ones.sort((a, b) => b - a)[0] || -1
+    return max;
 };
