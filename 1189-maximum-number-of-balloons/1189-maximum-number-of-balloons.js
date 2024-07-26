@@ -20,5 +20,5 @@ var maxNumberOfBalloons = function(text) {
         }
     })
 
-    return round === 10000 ? 0 : round;
+    return round;
 };
