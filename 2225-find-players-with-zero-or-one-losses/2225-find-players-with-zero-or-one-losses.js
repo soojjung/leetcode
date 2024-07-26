@@ -5,7 +5,7 @@
 var findWinners = function(matches) {
     const hashMap = new Map();
     const winners = [];
-    const secondWins = [];
+    const losers = [];
 
     matches.forEach(match => {
         hashMap.set(match[0], (hashMap.get(match[0]) || 0));
@@ -17,9 +17,9 @@ var findWinners = function(matches) {
             winners.push(key);
         }
         if (value === 1) {
-            secondWins.push(key);
+            losers.push(key);
         }
     }
 
-    return [winners.sort((a,b) => a - b), secondWins.sort((a, b) => a - b)]
+    return [winners.sort((a,b) => a - b), losers.sort((a, b) => a - b)]
 };
