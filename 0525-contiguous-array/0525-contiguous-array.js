@@ -3,21 +3,22 @@
  * @return {number}
  */
 var findMaxLength = function(nums) {
-    let max = 0;
-    const arr = [0];
+    const hashMap = new Map();
+    let sum = 0;
+    let ans = 0;
 
-    for (let i = 0; i < nums.length -1; i++) {
-        if (nums[i] !== nums[i+1]) {
-            max += 2;
-            i++;
-            arr.push(max);
-            continue;
+    for (let i = 0; i < nums.length; i++) {
+        sum += nums[i] === 0 ? -1 : 1;
+
+        if (sum === 0) {
+            ans = i + 1;
         }
-        if (nums[i] === nums[i+1]) {
-            arr.push(max);
-            max = 0;
+        else if (hashMap.has(sum)) {
+            ans = Math.max(ans, i - hashMap.get(sum))
+        } else {
+            hashMap.set(sum, i)
         }
     }
 
-    return Math.max(...arr);
+    return ans;
 };
