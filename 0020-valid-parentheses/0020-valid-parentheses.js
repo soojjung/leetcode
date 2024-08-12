@@ -8,7 +8,7 @@ const left = ["(", "[", "{"];
 const right = [")", "]", "}"];
 
 var isValid = function(s) {
-    const arr = [];
+    const stack = [];
 
     if (left.indexOf(s[0]) < 0) {
         return false;
@@ -17,16 +17,16 @@ var isValid = function(s) {
     for (let i = 0; i < s.length; i++) {
            
         if (left.indexOf(s[i]) > -1) {
-            arr.push(s[i]);
+            stack.push(s[i]);
         }
        
         else if (right.indexOf(s[i]) > -1) {
-            if (right.indexOf(s[i]) === left.indexOf(arr[arr.length -1])) {
-                arr.pop();
+            if (right.indexOf(s[i]) === left.indexOf(stack[stack.length -1])) {
+                stack.pop();
             } else {
                 return false;
             }
         }
     }
-    return arr.length === 0;
+    return stack.length === 0;
 };
