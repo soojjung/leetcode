@@ -16,9 +16,8 @@ MovingAverage.prototype.next = function(val) {
     let count = 0;
 
     for(let i = this.items.length - 1; i >= 0; i--) {
-        if (count == this.size) {
-            break;
-        }
+        if (count == this.size) break;
+        
         count++;
         total += this.items[i];
     }
