@@ -2,8 +2,8 @@
  * @param {number} size
  */
 var MovingAverage = function(size) {
-    this.size = size
-    this.items = []
+    this.size = size;
+    this.items = [];
 };
 
 /** 
@@ -11,17 +11,19 @@ var MovingAverage = function(size) {
  * @return {number}
  */
 MovingAverage.prototype.next = function(val) {
-        this.items.push(val)
-    let total = 0
-    let count = 0
+    this.items.push(val);
+    let total = 0;
+    let count = 0;
 
     for(let i = this.items.length - 1; i >= 0; i--) {
-        if(count == this.size) break
-        count++
-        total += this.items[i]
+        if (count == this.size) {
+            break;
+        }
+        count++;
+        total += this.items[i];
     }
 
-    return total / count
+    return total / count;
 };
 
 /** 
