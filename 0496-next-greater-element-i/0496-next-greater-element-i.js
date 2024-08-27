@@ -4,7 +4,6 @@
  * @return {number[]}
  */
 var nextGreaterElement = function(nums1, nums2) {
-    const stack = [];
     const answer = new Array(nums1.length).fill(-1);
     for (let i = 0; i < nums1.length; i++) {
         const idx = nums2.indexOf(nums1[i])
