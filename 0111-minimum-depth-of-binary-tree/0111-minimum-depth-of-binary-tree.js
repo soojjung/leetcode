@@ -11,7 +11,9 @@
  * @return {number}
  */
 var minDepth = function(root) { 
-    if (root === null) return 0;
+    if (root === null) {
+        return 0;
+    }
     
     let queue = [root];
     let level = 1;
