@@ -11,9 +11,9 @@
  * @return {number}
  */
 var maxAncestorDiff = function(root) {
-    if (!root) {
-        return 0;
-    }
+    // if (!root) {
+    //     return 0;
+    // }
         
     let diff = 0;
     helper(root, root.val, root.val);
