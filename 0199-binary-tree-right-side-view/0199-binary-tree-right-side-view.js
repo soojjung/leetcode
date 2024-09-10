@@ -11,22 +11,30 @@
  * @return {number[]}
  */
 var rightSideView = function(root) {
-    const ans = [];
-
-    const dfs = (node, depth) => {
-        if (!node) {
-            return;
-        }
-
-        if (depth >= ans.length) {
-            ans.push(node.val);
-        }
-
-        dfs(node.right, depth + 1);
-        dfs(node.left, depth + 1);
+    if (!root) {
+        return [];
     }
 
-    dfs(root, 0);
+    const ans = [];
+    let queue = [root];
+
+    while (queue.length) {
+        let nodesInCurrentLevel = queue.length;
+        const nextQueue = [];
+
+        ans.push(queue[queue.length - 1].val); // this is the rightmost node value for the current level
+        for (let i = 0; i < nodesInCurrentLevel; i++) {
+            let node = queue[i];
+            if (node.left) {
+                nextQueue.push(node.left);
+            }
+            if (node.right) {
+                nextQueue.push(node.right);
+            }
+        }
+
+        queue = nextQueue;
+    }
 
     return ans;
 };
