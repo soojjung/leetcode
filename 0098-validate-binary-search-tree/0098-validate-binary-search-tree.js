@@ -25,9 +25,6 @@ var isValidBST = function(root) {
         
         return left && right;
     }
-
-    const small = (-2)**31;
-    const large = 2**31 - 1;
     
     return dfs(root, -Infinity, Infinity);
 };
